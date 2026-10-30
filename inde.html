@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facturador 4.0 · Carrito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="barra">
+    <h1>⚡ TIENDA <span>TECH</span></h1>
+    <p class="carrito-icono">🛒 <span id="badge" class="badge">0</span></p>
+  </header>
+
+  <section class="slider" aria-label="Productos destacados">
+    <div class="pista" id="pista"></div>
+    <button type="button" class="flecha izq" id="prev" aria-label="Anterior">‹</button>
+    <button type="button" class="flecha der" id="next" aria-label="Siguiente">›</button>
+    <div class="puntos" id="puntos"></div>
+  </section>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>Catálogo</h2>
+      <div class="filtros">
+        <input type="search" id="buscar" placeholder="Buscar producto…">
+        <select id="categoria"><option value="todas">Todas las categorías</option></select>
+        <select id="orden">
+          <option value="defecto">Orden: destacados</option>
+          <option value="menor">Precio: menor a mayor</option>
+          <option value="mayor">Precio: mayor a menor</option>
+          <option value="nombre">Nombre: A–Z</option>
+        </select>
+        <div class="rango">
+          <label for="precioMax">Precio máximo: <b id="precioSalida">$300.00</b></label>
+          <input type="range" id="precioMax" min="0" max="300" step="1" value="300">
+        </div>
+      </div>
+      <p id="sinResultados" class="vacio" hidden>No hay productos que coincidan con la búsqueda.</p>
+      <div id="catalogo" class="catalogo"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Tu carrito</h2>
+      <p id="carritoVacio" class="vacio">Tu carrito está vacío. Agrega productos del catálogo.</p>
+      <ul id="listaCarrito" class="lista-carrito"></ul>
+
+      <label for="envio">Envío</label>
+      <select id="envio">
+        <option value="retiro">Retiro en el local</option>
+        <option value="cuenca">Envío dentro de Cuenca</option>
+        <option value="nacional">Envío nacional</option>
+      </select>
+
+      <div id="resumen" class="resumen"></div>
+
+      <div class="acciones">
+        <button type="button" id="btnConfirmar" class="principal" disabled>Confirmar pedido</button>
+        <button type="button" id="btnVaciar" class="secundario" disabled>Vaciar carrito</button>
+      </div>
+      <p id="mensaje" class="mensaje" hidden></p>
+    </section>
+  </main>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-caja" role="dialog" aria-modal="true">
+      <button type="button" class="modal-x" data-cerrar aria-label="Cerrar">✕</button>
+      <div id="modalCuerpo"></div>
+    </div>
+  </div>
+</body>
+</html>
